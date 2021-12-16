@@ -1,0 +1,12 @@
+#!/bin/bash
+
+COUNT_FILE="./countfile.txt"
+
+if [[ ! -s $COUNT_FILE ]]
+then
+	mkdir $(dirname $COUNT_FILE) 2>/dev/null
+	echo 1 > $COUNT_FILE
+fi
+output=$(cat $COUNT_FILE)
+echo $((output+1)) > $COUNT_FILE
+echo $output
